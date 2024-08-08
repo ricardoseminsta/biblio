@@ -2,27 +2,22 @@ import { Model, DataTypes } from "sequelize";
 import { sequelize } from "../instances/mysql";
 
 export interface CategoriesInstance extends Model {
-    id: number;
-    name: string;
-    slug: string;
+    categoria_id: number;
+    nome: string;
 }
 
-export const Categorie = sequelize.define<CategoriesInstance>("categories",{
-    id: {
+export const Categorie = sequelize.define<CategoriesInstance>("categoria",{
+    categoria_id: {
         primaryKey: true,
         autoIncrement: true,
         type: DataTypes.INTEGER,
     },
-    name: {
+    nome: {
         type: DataTypes.STRING,
         unique: true
-    },
-    slug: {
-        type: DataTypes.STRING,
-        
     }
     }, {
-    tableName: 'categories',
+    tableName: 'categoria',
 });
 
 Categorie.sync({ alter: true });

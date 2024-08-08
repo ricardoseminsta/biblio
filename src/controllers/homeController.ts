@@ -82,7 +82,7 @@ export const createCategory =  async (req: Request, res: Response) => {
     let slug: string = slugify(req.body.name);
 
     if(name) {
-        const newCategory = Categorie.build({ name, slug });
+        const newCategory = Categorie.build({ name });
         await newCategory.save();
     }
    res.redirect('/categories/categories');
@@ -96,7 +96,7 @@ export const updateCategories =  async (req: Request, res: Response) => {
 
     let updateCat = await Categorie.findByPk(id);
     if(updateCat) {
-        updateCat.name = name;
+        updateCat.nome = name;
         //updateCat.slug = slugify(name);
         await updateCat.save();
     }
