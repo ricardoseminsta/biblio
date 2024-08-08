@@ -1,0 +1,39 @@
+<%- include('../partials/header.ejs') %>
+
+   
+    <div class="container">
+        <header class="d-flex flex-wrap justify-content-center py-3 mb-4 border-bottom">
+            <a href="/" class="d-flex align-items-center mb-3 mb-md-0 me-md-auto text-dark text-decoration-none">
+                <svg class="bi me-2" width="40" height="32">
+                    <use xlink:href="#bootstrap" /></svg>
+                <span class="fs-4">Projeto desenvolvimento WEB</span>
+            </a>
+
+            <ul class="nav nav-pills">
+                <li class="nav-item"><a href="#" class="nav-link active" aria-current="page">Home</a></li>
+                <li class="nav-item"><a href="#" class="nav-link">Features</a></li>
+                <li class="nav-item"><a href="#" class="nav-link">Pricing</a></li>
+                <li class="nav-item"><a href="#" class="nav-link">FAQs</a></li>
+                <li class="nav-item"><a href="#" class="nav-link">About</a></li>
+            </ul>
+        </header>
+    </div>
+    <div class="px-4 py-5 my-5 text-center">
+        <img class="d-block mx-auto mb-4" src="/images/bootstrap-themes.png" alt="" width="72" height="57">
+        <h1 class="display-5 fw-bold">Cadastre o Categoria</h1>
+        <div class="col-lg-6 mx-auto">
+            <p class="lead mb-4">Iniciando o cadastro de categorias</p>
+            <div class="d-grid gap-2 d-sm-flex justify-content-sm-center">
+                <form action="/categoriacadastrado" method="post" >
+                    <fieldset>
+                        <legend>Cadastro de Categorias</legend>
+                        <label> Nome:
+                            <input type="text" name="name" placeholder="Digite a categoria"/>
+                        </label>
+                        <button type="submit" class="btn btn-primary btn-lg px-4 gap-3">Cadastrar</button>
+                    </fieldset>
+                </form>
+            </div>
+        </div>
+    </div>
+    <%- include('../partials/footer.ejs') %>

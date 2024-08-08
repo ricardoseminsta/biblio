@@ -1,0 +1,17 @@
+<%- include('../partials/header.ejs') %>
+
+    <p>Nome: <%= name %></p>
+    <p>Linguagem: <%= lang%></p>
+    <h4>Produtos</h4>
+    <ul>
+        <% produtos.forEach(function(produtos) { %>
+        <li><%= produtos.name%> - <%= produtos.price%> </li>
+       <%})%>
+    </ul>
+
+    <% if(showMessage) { %>
+        <h2>Mensagem!!!</h2>
+        <% } else { %>
+            <h2>Não Exibir Mensagem</h2>
+            <% } %>
+<%- include('../partials/footer.ejs') %>

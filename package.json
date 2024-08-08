@@ -1,0 +1,41 @@
+{
+  "name": "lc_projeto_web",
+  "version": "1.0.0",
+  "description": "Arquivos da disciplina de Projeto Web ",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start-dev": "nodemon -e ts,json,mustache src/server.ts"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/ricardoseminsta/lc_projeto_web.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/ricardoseminsta/lc_projeto_web/issues"
+  },
+  "homepage": "https://github.com/ricardoseminsta/lc_projeto_web#readme",
+  "dependencies": {
+    "bcrypt": "*",
+    "dotenv": "*",
+    "ejs": "*",
+    "express": "*",
+    "express-session": "*",
+    "install": "*",
+    "mysql2": "*",
+    "nodemon": "*",
+    "npm": "*",
+    "sequelize": "*",
+    "slugify": "*",
+    "ts-node": "*"
+  },
+  "devDependencies": {
+    "@types/bcrypt": "*",
+    "@types/ejs": "*",
+    "@types/express": "*",
+    "@types/node": "*",
+    "@types/sequelize": "*"
+  }
+}
