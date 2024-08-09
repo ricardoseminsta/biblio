@@ -1,6 +1,4 @@
 import { Request, Response } from "express";
-import { User } from "../models/User";
-import { UserSecondary } from "../models/UserSecondary";
 import { Categorie } from "../models/Categories";
 import slugify from 'slugify';
 
@@ -42,39 +40,14 @@ export const userSecondary =  (req: Request, res: Response) => {
     res.render('pages/users/create')
 }
 
-export const createUserSecondary = async (req: Request, res: Response) => {
-    let email: string = req.body.email;
-    let password: string = req.body.password;
 
-    if(email){
-        const userNew = UserSecondary.build({ email, password });
-        await userNew.save();
-    }
-
-   res.redirect('/users/login');
-
-}
 
 export const userLogin = (req: Request, res: Response) => {
     res.render('pages/users/login')
 }
 
 
-export const createUser =  async (req: Request, res: Response) => {
-    
-    let name: string = req.body.name;
-    let age: number = parseInt(req.body.age);
-    console.log(name, age);
-    
-    if(name){
-        const userNew = User.build({ name })
-        if(age) {
-            userNew.age = age; 
-        }
-        await userNew.save();
-    }
-   res.redirect('/');
-}
+
 
 export const createCategory =  async (req: Request, res: Response) => {
     

@@ -20,4 +20,4 @@ export const Categorie = sequelize.define<CategoriesInstance>("categoria",{
     tableName: 'categoria',
 });
 
-Categorie.sync({ alter: true });
+// Categorie.sync({ alter: true });
