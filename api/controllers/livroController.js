@@ -23,7 +23,7 @@ export const addLivro = (req, res) => {
       .json({ error: "Os campos 'titulo' e 'preco' são obrigatórios." });
   }
 
-  const q = "INSERT INTO livro(`titulo`, `descricao`, `preco`) VALUES(?, ?, ?)";
+  const q = "CALL CadastrarLivro(?, ?, ?)";
   const values = [titulo, descricao, preco];
 
   console.log("Valores a serem inseridos:", values);
@@ -47,9 +47,8 @@ export const updateLivro = (req, res) => {
       .json({ error: "Os campos 'titulo' e 'preco' são obrigatórios." });
   }
 
-  const q =
-    "UPDATE livro SET `titulo` = ?, `descricao` = ?, `preco` = ? WHERE `livro_id` = ?";
-  const values = [titulo, descricao, parseFloat(preco), req.params.id];
+  const q = "CALL EditarLivro(?, ?, ?, ?)";
+  const values = [req.params.id, titulo, descricao, preco];
 
   console.log("Valores a serem atualizados:", values);
 
@@ -68,5 +67,15 @@ export const deleteLivro = (req, res) => {
     if (err) return res.json(err);
 
     return res.status(200).json("Livro deletado com sucesso.");
+  });
+};
+
+export const getLivroById = (req, res) => {
+  const q = "SELECT * FROM livro WHERE `livro_id` = ?";
+
+  db.query(q, [req.params.id], (err, data) => {
+    if (err) return res.json(err);
+
+    return res.status(200).json(data);
   });
 };

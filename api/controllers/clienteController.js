@@ -30,8 +30,8 @@ export const addCliente = (req, res) => {
     return res.status(400).json({ error: "O email fornecido não é válido." });
   }
 
-  const q =
-    "INSERT INTO cliente(`primeiro_nome`, `segundo_nome`, `email`, `telefone`, `endereco_id`) VALUES(?, ?, ?, ?, ?)";
+  const q = "CALL CadastrarCliente(?, ?, ?, ?, ?)";
+
   const values = [
     primeiro_nome,
     segundo_nome || null,
@@ -68,15 +68,14 @@ export const updateCliente = (req, res) => {
     return res.status(400).json({ error: "O email fornecido não é válido." });
   }
 
-  const q =
-    "UPDATE cliente SET `primeiro_nome` = ?, `segundo_nome` = ?, `email` = ?, `telefone` = ?, `endereco_id` = ? WHERE `cliente_id` = ?";
+  const q = "CALL EditarCliente(?, ?, ?, ?, ?, ?)";
   const values = [
-    primeiro_nome,
-    segundo_nome || null,
-    email || null,
-    telefone,
-    endereco_id || null,
     req.params.id,
+    primeiro_nome,
+    segundo_nome,
+    email,
+    telefone,
+    endereco_id,
   ];
 
   console.log("Valores a serem atualizados:", values);

@@ -4,6 +4,7 @@ import categoriaRoutes from "./routes/categoriasRoutes.js";
 import clienteRoutes from "./routes/clientesRoutes.js";
 import enderecoRoutes from "./routes/enderecosRoutes.js";
 import livroRoutes from "./routes/livrosRoutes.js";
+import reservaRoutes from "./routes/reservasRoutes.js";
 
 import cors from "cors";
 import bodyParser from "body-parser";
@@ -20,6 +21,7 @@ app.use("/categorias", categoriaRoutes);
 app.use("/clientes", clienteRoutes);
 app.use("/enderecos", enderecoRoutes);
 app.use("/livros", livroRoutes);
+app.use("/reservas", reservaRoutes);
 
 app.listen(8800, () => {
   console.log("Server is running on port 8800");
